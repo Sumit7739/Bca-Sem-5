@@ -1,3 +1,8 @@
+#### syllabus wise notes 
+
+[here](notes.md)
+
+
 ### **Topic 1: Web Forms in ASP.NET**  
 
 **Web Forms** are the fundamental building blocks for creating dynamic web applications in ASP.NET. They provide a way to create user interfaces using a **drag-and-drop** approach with controls like buttons, text boxes, labels, etc.  
