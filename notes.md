@@ -256,3 +256,189 @@ ViewState["ClickCount"] = 5;
 🚀 **ASP.NET 2.0 simplifies web development with structured coding, powerful controls, and efficient state management!**  
 
 🔹 **Next Topic:** Standard Controls 📌 Ready to continue? 😊
+
+# **Standard Controls in ASP.NET 2.0 – A Detailed Explanation**  
+
+ASP.NET 2.0 provides a rich collection of **server-side controls** that help in designing and developing interactive **web applications**. These controls allow users to interact with web pages through **text inputs, buttons, lists, and radio buttons**, and they automatically generate HTML and JavaScript for smooth functionality.  
+
+---
+
+## **1. Introduction to Controls**  
+
+Controls in ASP.NET are **components** that provide **interactive features** in web applications. ASP.NET offers several types of controls:  
+
+### **Types of Controls in ASP.NET 2.0**  
+1. **Standard Controls** – Basic UI elements like Label, TextBox, Button, ListBox, etc.  
+2. **Validation Controls** – Ensure valid user input (RequiredFieldValidator, RangeValidator, etc.).  
+3. **Data Controls** – Used for displaying and manipulating data (GridView, Repeater, DataList).  
+4. **Navigation Controls** – Help users navigate through a website (Menu, TreeView, SiteMapPath).  
+5. **Login Controls** – Handle authentication (Login, ChangePassword, CreateUserWizard).  
+6. **Rich Controls** – Advanced UI components like Calendar, FileUpload, MultiView.  
+7. **WebParts Controls** – Allow modular page customization for users.  
+
+ASP.NET **server-side controls** process user actions **on the server**, rather than the client (browser), making applications more powerful and secure.  
+
+---
+
+## **2. Designer Support for Controls**  
+
+ASP.NET 2.0 **simplifies UI development** by providing **drag-and-drop support** in **Visual Web Developer (VWD) and Visual Studio**:  
+
+✅ **Drag-and-Drop UI:** Controls can be dragged from the **Toolbox** directly onto a webpage.  
+✅ **Properties Window:** Developers can change control properties (e.g., text, color) without coding.  
+✅ **Auto-Generated Code:** When a control is added, ASP.NET automatically generates HTML and C# (or VB.NET) code.  
+✅ **Event Handling Simplified:** By **double-clicking a control**, an event handler (e.g., Button_Click) is auto-created in the code-behind file.  
+
+### **Example: Adding a Button via Designer**
+1. **Drag a Button Control** from the Toolbox.  
+2. **Modify Properties** like `Text`, `ID`, `CssClass` in the Properties Window.  
+3. **Double-click the Button** to generate a `Button_Click` event handler in the code-behind.  
+
+---
+
+## **3. Standard Controls Overview**  
+
+Standard Controls are fundamental to ASP.NET applications. They are used to **display information, take input, and trigger events**.  
+
+| **Control** | **Description** | **Example Usage** |  
+|------------|---------------|----------------|  
+| **Label** | Displays static/dynamic text | Welcome, User! |  
+| **TextBox** | Captures user input (single/multi-line) | Enter Name: [______] |  
+| **Button** | Executes an action when clicked | Submit Form |  
+| **ImageButton** | Acts like a button but uses an image | ![Login](button.png) |  
+| **ListBox** | Displays a list of items | Select a Country [India, USA, UK] |  
+| **RadioButton** | Allows single selection from multiple options | Male / Female |  
+
+Each control has **properties, methods, and events** that define its **behavior and appearance**.  
+
+---
+
+## **4. Label Control**  
+
+The **Label control** is used to display text on a webpage. It does not accept user input.  
+
+### **Properties of Label Control**  
+- `Text` → Defines the text to display.  
+- `ForeColor` → Sets text color.  
+- `Font-Size` → Defines text size.  
+- `BackColor` → Sets background color.  
+
+### **Example: Adding a Label in ASP.NET**  
+**ASPX Code:**  
+```aspx
+<asp:Label ID="lblMessage" runat="server" Text="Welcome to ASP.NET 2.0!" ForeColor="Blue"></asp:Label>
+```  
+This displays:  
+🔹 **Welcome to ASP.NET 2.0!** (in blue color)  
+
+---
+
+## **5. TextBox Control**  
+
+The **TextBox control** allows users to enter text. It supports **single-line and multi-line inputs**.  
+
+### **Properties of TextBox Control**  
+- `TextMode` → Can be `SingleLine`, `MultiLine`, or `Password`.  
+- `MaxLength` → Limits the number of characters.  
+- `ReadOnly` → Prevents user input.  
+- `CssClass` → Applies CSS styles.  
+
+### **Example: TextBox for User Input**  
+```aspx
+<asp:TextBox ID="txtName" runat="server" MaxLength="30"></asp:TextBox>
+```
+This creates a **single-line** text field where users can enter up to **30 characters**.  
+
+---
+
+## **6. Button Control**  
+
+The **Button control** triggers an event when clicked, such as submitting a form.  
+
+### **Properties of Button Control**  
+- `Text` → Sets button label.  
+- `OnClick` → Calls a function when clicked.  
+
+### **Example: Button with Click Event**  
+```aspx
+<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+```
+
+**Code-Behind (C#):**
+```csharp
+protected void btnSubmit_Click(object sender, EventArgs e)
+{
+    lblMessage.Text = "Button Clicked!";
+}
+```
+📌 When the **button is clicked**, the label displays `"Button Clicked!"`  
+
+---
+
+## **7. ImageButton Control**  
+
+The **ImageButton control** works like a button but uses an image instead of text.  
+
+### **Example: ImageButton with Click Event**  
+```aspx
+<asp:ImageButton ID="imgLogin" runat="server" ImageUrl="~/login.png" OnClick="imgLogin_Click" />
+```
+📌 When clicked, it calls the `imgLogin_Click` function.  
+
+---
+
+## **8. ListBox Control**  
+
+The **ListBox control** allows users to select **one or multiple** items from a list.  
+
+### **Example: ListBox with Multiple Selection**  
+```aspx
+<asp:ListBox ID="lstFruits" runat="server" SelectionMode="Multiple">
+    <asp:ListItem>Apple</asp:ListItem>
+    <asp:ListItem>Banana</asp:ListItem>
+    <asp:ListItem>Orange</asp:ListItem>
+</asp:ListBox>
+```
+📌 Users can select **one or more fruits**.  
+
+---
+
+## **9. RadioButton Control**  
+
+The **RadioButton control** allows users to select **one option** from multiple choices.  
+
+### **Example: RadioButton for Gender Selection**  
+```aspx
+<asp:RadioButton ID="rdoMale" runat="server" GroupName="Gender" Text="Male" />
+<asp:RadioButton ID="rdoFemale" runat="server" GroupName="Gender" Text="Female" />
+```
+📌 Only **one option** can be selected at a time.  
+
+---
+
+## **10. Handling Events in Controls**  
+
+Events in ASP.NET **respond to user actions** like clicking a button, changing text, or selecting an option.  
+
+### **Example: Handling Button Click Event**  
+1️⃣ **Add a Button Control:**  
+```aspx
+<asp:Button ID="btnShowMessage" runat="server" Text="Click Me" OnClick="btnShowMessage_Click" />
+```  
+
+2️⃣ **Write Code in Code-Behind:**  
+```csharp
+protected void btnShowMessage_Click(object sender, EventArgs e)
+{
+    lblMessage.Text = "Hello, ASP.NET 2.0!";
+}
+```
+📌 Clicking the button updates the **Label text** dynamically.  
+
+---
+
+## **Conclusion**  
+
+Standard Controls in ASP.NET **enhance user interaction** by providing input fields, buttons, and selection options. ASP.NET 2.0 makes it easier to work with these controls using **drag-and-drop support, properties window, and event handling**.  
+
+Would you like a **practical project example** using these controls? 🚀
